@@ -2,6 +2,8 @@
 // https://gist.github.com/Klerith/3949f1c8b884d7101e378dfb668f0f3a
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Toaster as SonnerToaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
 import Link from "next/link";
 
 const links = [
@@ -25,6 +27,8 @@ const links = [
   { name: "skeleton", href: "skeleton" },
   { name: "slider", href: "slider" },
   { name: "sonner", href: "sonner" },
+  { name: "toast", href: "toast" },
+  { name: "tabs", href: "tabs" },
 ].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
@@ -34,6 +38,8 @@ export default function DashboardLayout({
 }) {
   return (
     <>
+      <SonnerToaster richColors />
+      <Toaster />
       <nav className="bg-white border-b border-gray-200 fixed z-30 w-full">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
