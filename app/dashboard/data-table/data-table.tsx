@@ -204,7 +204,7 @@ export function DataTable<TData, TValue>({
             )}
           </TableBody>
         </Table>
-        <div className="flex justify-between place-items-center px-8">
+        <div className="flex justify-between place-items-center px-4">
           <div className="flex-1 text-sm text-muted-foreground">
             {table.getFilteredSelectedRowModel().rows.length} of{" "}
             {table.getFilteredRowModel().rows.length} row(s) selected.
@@ -228,6 +228,25 @@ export function DataTable<TData, TValue>({
             </Button>
           </div>
         </div>
+        <Select
+          onValueChange={(value) => {
+            table.setPageSize(Number(value));
+          }}
+        >
+          <SelectTrigger className="w-[180px] mb-2 mx-4">
+            <SelectValue placeholder="10 rows"></SelectValue>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Rows per page</SelectLabel>
+              <SelectItem value="10">10 rows</SelectItem>
+              <SelectItem value="20">20 rows</SelectItem>
+              <SelectItem value="30">30 rows</SelectItem>
+              <SelectItem value="50">50 rows</SelectItem>
+              <SelectItem value="100">100 rows</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
       </div>
     </div>
   );
